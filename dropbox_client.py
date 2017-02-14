@@ -85,7 +85,7 @@ class DropBox(metaclass=sanitizer_meta_class):
 
 
 
-	def download_file(self):
+	def get_arbs_html(self):
 		''' Download a file.
 
 		Return the bytes of the file, or None if it doesn't exists
@@ -99,7 +99,8 @@ class DropBox(metaclass=sanitizer_meta_class):
 		data = response.content
 		self.downloaded = True
 		print('Successfully downloaded...')
-		return data
+		return data.decode('utf-8')
+
 
 
 

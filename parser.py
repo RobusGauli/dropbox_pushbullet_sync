@@ -3,6 +3,7 @@ import sys
 import bs4
 import unicodedata
 import itertools
+import re
 
 from collections import namedtuple
 
@@ -12,6 +13,7 @@ Option = namedtuple('Option', 'option odd price link')
 Arb = namedtuple('Arb', 'head options margin')
 class Parser(object):
 	'''This class is used for parsing th raw html from the file downloaded from the dropbox'''
+	margin_re = re.compile('[\\d]+.[\\d]*?%')
 
 	def __init__(self, html_string):
 		self.root = bs4.BeautifulSoup(html_string, 'html.parser')
@@ -51,13 +53,23 @@ class Parser(object):
 			options.append(Option(op, odd, price, link))
 		return options
 
+	@classmethod
+	def correct_margin(cls, margin):
+		value = cls.margin_re.search(margin).group()
+		try:
+			value = value.rstrip('%')
+			val = float(value)
+		except ValueError:
+			val = 0
+		return val
+
 
 	def get_arbs(self):
 		total_arbs = []
 		for arb_tr in self.arbs_trs:
 			Head = self.handle_header(arb_tr[0])
 			options = self.handle_other_trs(arb_tr[1:])
-			arb = Arb(Head, options, Head.margin)
+			arb = Arb(Head, options, Parser.correct_margin(Head.margin))
 			total_arbs.append(arb)
 		return total_arbs
 

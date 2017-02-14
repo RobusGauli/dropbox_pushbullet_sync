@@ -18,6 +18,8 @@ ABSOLUTE_FILE_PATH = '/arb_results/arbs.html'
 #Push bullet access token
 PUSH_ACCESS_TOKEN = 'o.AQMJ1DnyZ90ep7BUAst1uMz1bgNQVrac'
 
+#margin for the arb
+MARGIN = 2.5
 
 
 
