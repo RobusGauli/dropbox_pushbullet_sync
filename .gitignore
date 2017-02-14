@@ -1,0 +1,8 @@
+*.pyc
+__pycache__
+env
+*.html
+*.sh
+.DS_Store
+
+
