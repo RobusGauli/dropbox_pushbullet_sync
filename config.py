@@ -11,15 +11,19 @@ DROPBOX_ACCESS_TOKEN = 'I6aCFFFZWPAAAAAAAAAADeHi4sMU5mgsOipcUTRetFlzl00LS2zFY0nE
 
 #This must be the absoulte location of that html in your dropbox account
 #ABSOLUTE_FILE_PATH = '/Apps/arb.html'
-
 ABSOLUTE_FILE_PATH = '/arb_results/arbs.html'
 
 
-#Push bullet access token
-PUSH_ACCESS_TOKEN = 'o.AQMJ1DnyZ90ep7BUAst1uMz1bgNQVrac'
+#DanilePush bullet access token
+PUSH_ACCESS_TOKEN = 'o.QOzNMQa8RWYhsEUc5iBXUIHrX75LeyL8'
+
+
+#robus push bullet access_token
+#PUSH_ACCESS_TOKEN = 'o.fAEQJzD1JC8arHJ7bdK3VyM2mV3U37uW'
 
 #margin for the arb
-MARGIN = 2.5
+MARGIN = 3
+LIMIT = 8
 
 
 
